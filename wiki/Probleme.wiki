@@ -1,0 +1,21 @@
+#summary Probleme und Lösungen rund ums Projekt
+
+= Probleme + Lösungen =
+
+== Eclipse - .settings Dateien werden synchronisiert ==
+
+ * Projekt öffnen > PyDev Package Explorer Ansicht > kleines Dreieck ausklappen > Customize View > .* resources unchecken 
+ * wenn Subclipse die Dateien wieder mit einem Fragezeichen anzeigt > Rechtemaustaste > Team > add to svn:ignore ...
+
+== PyCharm - SVN Commit klappt nicht ==
+
+ # PyCharm öffnen
+ # falls Projekte offen sind, diese alle schließen bis man den PyCharm Startscreen sieht
+ # Checkout from Version Control wählen
+ # Subversion auswählen
+ # https://face-recognitions.googlecode.com/svn/trunk/ eintragen
+ # Anweisungen folgen ...
+ # Beim ersten Commit wird dann Username (Google-Name) und dass Passwort (von Google-Code generiert) erfragt.
+
+*Hinweis*
+Das Passwort sieht man im Repository unter Source > Checkout > googlecode.com password.

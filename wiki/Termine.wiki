@@ -1,0 +1,38 @@
+#summary Termine, Milestones und Zeiten die das Projekt betreffen.
+
+== Wöchentliche Meetings ==
+
+*Mittwochs*
+
+ * 14.00 - ? Uhr Julia, Pascal,
+ 
+ * 15.00 - ? Uhr Deniz
+
+*Donnerstags*
+
+ * 08.15 - ? Uhr Julia, Deniz, Pascal
+
+*Freitags*
+
+ * ? Uhr Julia, Deniz?, Pascal
+
+== Termine ==
+
+ * 19.12.2013 - 02.01.2014 (Ausland, Julia)
+
+ * *23.12.2013 - 05.01.2014* Vorlesungsfrei
+
+ * 06.01.2014 Fachseminar Vortrag (Julia)
+
+ * 07.01.2014 - 17.01.2014 Rückmeldung
+
+ * *09.02.2014* Abgabe der Dokumentation
+
+ * 31.01.2014 Vorlesungs-Ende
+
+ * 09.02.2014 Doku-Abgabe
+ 
+ * 13.02.2014 Demo + Prüfung 40Min. 
+ * 28.02.2014 Semester-Ende
+
+ * 03.02.2014 - 07.03.2014 Prüfungszeit

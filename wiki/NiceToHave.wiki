@@ -1,0 +1,9 @@
+#summary Alles was schön wäre wenn wir mehr Zeit hätten / haben.
+
+ # sogar qualität der Trainingset-Fotos checken 
+ # Training starten nachdem 'disable' Klick auf den Trainig-Button
+ # Name-ID Zuordnung, solange es noch keine User-Klasse gibt
+ # Abfrage nach eingabe der ID: 'Bist Du tatsächlich _Name_ mit ID _ID_?'
+ # Fehler Abfangen, wenn Programm noch läuft und man es nochmal startet -> schöne Fehlermeldung
+ # User-Klasse, fuer gute Benutzerverwaltung
+ # rot grün Anzeige als Signal beim erstellen des Training-Set wann genug Fotos aufgenommen wurden ca. 100 (wenn nach Anzahl) oder ansonsten

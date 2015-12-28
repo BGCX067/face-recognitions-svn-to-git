@@ -1,0 +1,24 @@
+#summary Konventionen zur Einheitlichen Projektarbeit, Code-Style etc..
+
+== Code ==
+
+ * Code: Englisch, Unterstriche zur besseren Lesbarkeit (siehe [http://www.python.org/dev/peps/pep-0008/ PEP-8 Style Guide])
+
+{{{
+if foo == 'blah':
+    do_blah_thing()
+}}}
+
+ * Kommentare: Deutsch
+
+ * Python Style: [http://www.python.org/dev/peps/pep-0008/ PEP-8 Style Guide]
+
+ * Sprache: [http://docs.python.org/2.7/ Python 2.7.6]
+
+ * SVN Repository: https://face-recognitions.googlecode.com
+
+== Administration ==
+
+ * Kommunikation: Email
+
+ * Dateiaustausch: Dropbox/FACERECOGNITION

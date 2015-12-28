@@ -1,0 +1,82 @@
+#summary Historie der Teammeetings und wichtigste Ereignisse etc.
+
+== FR 31.01.2014 ==
+
+ * TrainingSet Sebbl angelegt 
+ * 34 Fotos waren zu wenig -> Falsch erkannt
+ * 90 Fotos OK
+
+
+== DI 21.01.2014 ==
+ * TODO Wiki Seiter erweitert und Theorie gelesen
+ * Button-Callback Methoden angelegt
+{{{
+foto_clicked()
+who_i_clicked()
+}}}
+
+ * Klasse fuer Zentrale XML Datenhaltung
+{{{
+facedetect.Haarcascades
+}}}
+ * Docstrings erweitert
+ * Encoding fuer alle Module auf utf-8
+ 
+== FR 17.01.2014 ==
+ 	
+ * Face Preprocessing abgeschlossen
+ * Neue GUI Klasse (PyQt) die Videobild und Buttons anzeigt
+ * Facedetection und Preprocessing werden automatisch ausgefuehrt
+ * main.py ist NURNOCH das Bootstrap Modul und startet die Anwendung
+
+== DO 16.01.2014 ==
+
+=== Facedetection ===
+
+ * Nur größtes Gesicht wird erkannt
+ * Umstellung auf kleines schnelleres Modul ohne OpenGL nur mit HighGui Windowtoolkit
+ * Beide Augen werden individuell erkannt.
+ * Gefundene Gesicht wird geometrisch transformiert und momentan angezeigt
+ * PyQt GUI Grundgerüst mit Videobild und Buttons
+
+=== GUI === 
+
+ *  
+=== Teamentscheidungen ===
+
+ * PyQT + Buttons + Videobild kein highgui (OpenCV-GUI) mehr da nur Slider möglich
+   
+== FR 10.01.2014 ==
+
+ * Julia, Pascal
+
+=== Facedetection ===
+
+ * [http://books.google.de/books?id=cIM7xK5j8fYC&pg=PA34&lpg=PA34&dq=CV_HAAR_SCALE_IMAGE&source=bl&ots=c5ZPVsKdIh&sig=tjFHRk0Pj5NqyfzvA0cdxVMevxY&hl=de&sa=X&ei=LAnWUoHgHKme0QXsqYDoCg&ved=0CHgQ6AEwCA#v=onepage&q=CV_HAAR_SCALE_IMAGE&f=false Digitale Gesichtserkennung Buch DE]
+
+ # Kamerabild von RGB in Grauwertbild wandeln
+ # Bilder auf feste Breite runter skalieren DETECTION_WIDTH = 320
+ #Histogrammausgleich für höheren Kontrast -> bessere Gesichtsdetektion
+ # Rahmen um erkannte Gesichter zeichnen (zurückskalieren)
+
+ * Pfad zu den .xml Dateien (Linux)
+{{{
+/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_alt.xml
+}}}
+ 
+ * Gesichtsdetector Instanziieren
+{{{
+cv2.CascadeClassifier.detectMultiScale(...)
+}}}
+
+ * *scaleFactor*
+  * Die nach Gesichtern zu Durchsuchenden Fenster werden mehrmals über das Bild "geschoben". *scaleFactor* gibt an um welchen Faktor die Abbildung je Durchlauf verkleinert wird
+
+ * *minNeighbors*
+  * Jedes Gesicht wird durch die verschiedenen 'Fenster-Durchläufe' mehrfach erkannt. *minNeighbors* gibt an in wievielen angrenzenden Fenstern das Gesicht mindestens gefunden werden muss
+
+ * *maxSize*
+  * Größe die bestimmt ab wann Gesichter zu groß sind und ignoriert werden
+
+ * *minSize*
+  * Größe die bestimmt ab wann Gesichter zu klein sind und ignoriert werden

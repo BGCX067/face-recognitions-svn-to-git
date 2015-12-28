@@ -1,0 +1,191 @@
+#summary Alles was ansteht zeitlich sortiert, älteste Einträge stehen unten.
+
+== SA + SO ==
+
+===Abgabe===
+  * Code aufräumen
+  * prints --> nur logs
+  * kommentieren
+  * code was nicht benutzt wird, löschen
+
+=== DOKU ===
+  * Voraussetzung ergänzen
+  * Face Preprocessing
+    * Bilder von uns während den 4 Schritten anzeigen lassen
+  * Trainins-Set name ergänzen
+  * Training
+  * Alg
+    * PCA
+    * LDA
+    * FisherFace
+    * Distanzen
+  * FaceRecognition
+    * Simlar Wert & min_dist einschränken
+    * funktioniert nicht so stark, wie es soll
+
+== Fisherfaces & Eigenfaces fuer Doku abspeichern als png ==
+
+== FR ==
+ to DO: 
+  * Abfangen von Fehlern:
+    * Abfangen wenn weniger als 3 Personen angelegt sind
+    * Abfangen wenn weniger als 100 Bilder gespeichert werden
+
+Extras Nice to Have:
+  * KCross Validation
+  * Bilder von Eigenface/ Fisherface ausgeben/ verbindlichen
+
+
+=== Ablauf Testen ===
+
+=== Optional ===
+
+=== Name Anzeigen mit ID ===
+ * *OK*
+=== k-Cross Fold Validation von TrainingSets ===
+
+=== Condfidence - Wie sicher ist das Programm das Gesicht korrekt zugeordnet zu haben ===
+
+ * *OK* Erstmal min_dist verfeinern
+ * *OK* dann ggf. weitere Methoden probieren -> nachlesen
+
+== DO ==
+
+=== Key Error raus ===
+
+== min_dist 'Verfeinern' ==
+
+ * *OK* min_dist Variable die den Abstand der Eigenwerte angibt so einstellen, dass sie einen möglichst effektiven Schwellwert darstellt fuer zuverlässige Wieder-Erkennung
+
+ 
+== Face recognition ==
+
+== Recognition Algorithm ==
+ * *Frage*: Wollen wir:
+  # Eigenface: Gut für Rekonstruktion
+  # Fisherfaces: Gut für Recognition -> *JA*
+  # LBPH oder andere sehe: [http://www.face-rec.org/algorithms]
+ * *Frage*: brauchen wir Face Validation?
+
+ * *Antwort: Fischerface
+== Collecting Faces ==
+=== Training Set ===
+
+ * *OK* Gesichtsbilder der zu erkennenden Personen (Julia, Deniz, Pascal)
+
+ * Aspekte
+  * Licht: Links, rechts, Oben, Kamera um 180Grad gedreht
+  * Standorte: 
+    * verschiedene Positionen im Raum
+    * im stehen, im sitzen
+  * Man kann die Gesicht Ausdrücke selbst in 3 Kategorien aufteilen:
+   * Augen(Blickrichtung): Oben, Unten, Rechts, Links, Direkt 
+   * Kopf(-Position): Leicht nach Oben, leicht nach Unten, nach links geneigt, nach rechts geneigt 
+   * Emotionen: lächelnd, neutral, böse
+ * Code/Funktion/Routine
+  * *OK* 1Bild/1sec und/oder nur Gesicht die unterschiedlich sind zu vorherigen preprocessed Bild aufnehmen in Training-Set
+   * *OK* L2 Error - Trainingsset wird automatisch erstellt mit L2 Error vergleich um Positions/Blickrichtungs-Änderungen sicherzustellen
+    *  *OK* 0.3 Als Schwellwert um neues Foto in Training-Set aufzunehmen
+  * *OK* jedes Bild auch einmal gespiegelt ins Training-Set aufnehmen  [http://docs.opencv.org/2.4.6/modules/core/doc/operations_on_arrays.html?highlight=flip#cv2.flip cv2.flip()]
+{{{
+cv2.flip(src, flipCode[, dst]) → dst
+}}}
+ 
+ * Abspeichern als Datei
+
+=== Face Database Structure ===
+ * Wir müssen entscheiden wie wir die Training Set abspeichern wollen und wie wir darauf danach zugreifen
+  * [http://docs.opencv.org/trunk/modules/contrib/doc/facerec/facerec_tutorial.html#face-database] Open Cv erklärt wie man eine Verzeichnis Struktur in ein CSV File abspeichert
+  * Theoretisch können wir dann auch eine Datei haben der die Zahlen Labels zu Namen auflösen. Beim Starten wurden wir dann die Informationen in ein Dict einpflegen.
+  * Oder direkt so machen und ein Dict mit den Namen als Values und die Bildpfade als Keys
+
+== Face preprocessing ==
+
+=== Ellypsen Maske ===
+
+ * *OK*
+=== Smoothing (Bilateral-Filter) ===
+
+ * *OK*
+
+=== Separaten Histogrammausgleich, linke + rechte Gesichtshälfte ===
+
+ * *OK*
+
+=== Geometrische transformation + cropping ===
+
+ * *OK* Stirn, Kinn, Ohren, Hintergrund croppen (wegschneiden)
+
+ {{{
+warpAffine() 
+}}}
+ * *OK* Affine Transformation in OpenCV
+  * *OK* Rotation -> Augen horizontal ausrichten
+  * *OK* Skalierung -> in jedem Bild den selben Abstand zwischen den Augen 
+  * *OK* Translation -> Gesicht so Verschieben dass Augen horizontal zentriert und auf einer bestimmten Höhe (welche??) sind
+
+
+=== Eye-Detection für rechtes + linkes Auge ===
+
+ * *OK* Groß (Frage) Welche xml benutzen wir -> ROI kleiner, groß siehe (PDF S.272 ff.)
+  * Empfehlung: haarcascade_eye wenn fail -> haarcascade_eye_tree_eyeglasses (PDF S.274)
+
+ * *OK* (geschlossene Augen, keine Brille) (Frage) geschlossene Augen + Brille auch? (ja, wenn erste Durchgang erfolglos)
+
+ * *OK* rechtes Auge
+
+ * *OK* linkes Auge
+
+== Facedetection ==
+
+ * *OK* Rechteck um gefunde/s Gesicht/er zeichnen
+
+ * (Nice2Have) Gesichter auch am Rand des Bildes erkennen (PDF S.269)
+
+ * *OK* (MUSS?) Nur größtes Gesicht finden 
+
+ * (Frage) Wer weiß was rejectLevels, levelWeighs, outputRejectLevels der Funktion [http://docs.opencv.org/2.4.6/modules/objdetect/doc/cascade_classification.html?highlight=cascadeclassifier#CascadeClassifier CascadeClassifier.detectMultiScale] machen?? 
+
+ * (Performance+) Schwellwert maximale Gesichtsgröße setzen maxSize
+
+ * (Performance+) Schwellwert minimale Gesichtsgröße setzen minSize(80x80)
+
+ * *OK* (benutzen cv2.cv.CV_HAAR_FIND_BIGGEST_OBJECT)(Nice2Have) Performance steigern durch Flags 
+{{{ 
+0|cv2.cv.CV_HAAR_SCALE_IMAGE
+}}} 
+ * [http://books.google.de/books?id=cIM7xK5j8fYC&pg=PA34&lpg=PA34&dq=CV_HAAR_SCALE_IMAGE&source=bl&ots=c5ZPVsKdIh&sig=tjFHRk0Pj5NqyfzvA0cdxVMevxY&hl=de&sa=X&ei=LAnWUoHgHKme0QXsqYDoCg&ved=0CHgQ6AEwCA#v=onepage&q=CV_HAAR_SCALE_IMAGE&f=false bewirkt] das das Bild nicht das 'Fenster' skaliert wird
+ * *OK* Fenster (minfeaturesize) anpassung
+
+ * *OK* Alle Gesichter finden 
+
+ * *OK* Haar-Like "Viola-Jones-Algorithm" Facedetection mit OpenCV
+
+== Administration ==
+
+ * *OK* Sicherstellung dass jeder eine funktionierende IDE hat
+
+ * *OK* Repository Einweisung
+ 
+ * *OK* Einlesen, in *Facerecognition* mit *Eigenfaces* (von Dr. Schwanecke empfohlen)
+
+ * *OK* Anforderungs-Analyse - Teilaufgaben klären die das System leisten muss
+
+ * *OK* Beispiel Durchgehen Facedetection
+
+
+== Fragen an Dr. Schwanecke ==
+ * Können wir unsere 3 Gesichter live vor der Präsentation anlernen (um beste Lichtverhältnisse etc. zu haben?
+
+ * Müssen/sollten wir Webcam Fotos direkt neu erstellen oder einladen von DB?
+  * A: Bilddatenbankd können wir vorher anlegen und trainieren
+  * A: Zu erkennende Person wird 'live' per Cam fotografiert und erkannt
+ 
+ * Soll es Bilder zuordnen oder von Webcam
+  * A: von der Webcam muss es funktionieren
+
+ * Wo muss Demo laufen? (Licht)
+  * A: Auf einem beliebigen Rechner
+
+ * Ist es von Voteil ein HSRM SVN Repository zu benutzen? Zugriff vom Prof etc.?
+  * A: Ist egal

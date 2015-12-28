@@ -1,0 +1,71 @@
+#summary Hilfreiche Links rund um das Projekt-Thema.
+
+== Diagramme UML etc. ==
+
+ * [https://www.dropbox.com/s/w2wz5r42sjkivzj/Aktivitaetsdiagramm_TrainingSet.Bild.Speichern_01.pdf Aktivitätsdiagramm Gesicht Abspeichern]
+
+ * [https://www.dropbox.com/s/wetrp1xqo7vuc6q/Klassendiagramm_01.pdf Klassendiagramm v01] 
+
+== Verschiedenes ==
+
+  [https://www.draw.io/# draw.io] UML Zeichenprogramm
+
+
+== Facerecognition ==
+
+*Basis Artikel*
+
+ * [http://www.shervinemami.info/faceRecognition.html] Face Recognize beschrieben
+
+ * [http://books.google.de/books?id=cIM7xK5j8fYC&pg=PA17&lpg=PA17&dq=fisherfaces&source=bl&ots=c5_HOuC7He&sig=k2nefolXG90zX9n-ve7JuJsM3PM&hl=de&sa=X&ei=xwvqUsLJLMnRsgbb0IDYBA&ved=0CEgQ6AEwBA#v=onepage&q=fisherfaces&f=false Digitale Gesichtserkennung] google books
+
+ * [http://eliteinformatiker.de/2013/08/28/eine-einfache-gesichtserkennung-mit-opencv-und-scikit-learn/ eliteinformatiker.de]
+
+ * [http://fideloper.com/facial-detection fideloper.com] Facedetection Python
+
+ * [https://gist.github.com/npinto/3632388#file-cv2_detect-py github simple facedetection]
+
+ * [http://cognotics.com/opencv/servo_2007_series/index.html cognotics.com Seeing With OpenCV EN]
+
+ * [http://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&ved=0CFkQFjAF&url=http%3A%2F%2Fgeneral-k-cut.googlecode.com%2Fsvn-history%2Fr150%2Ftrunk%2Fbooks%2F1849517827_OpenCV.pdf&ei=mlugUrGyIqfV4gS4zoHwDw&usg=AFQjCNGVPEncqIeQLpMGv3arDKpcBJbeVA&bvm=bv.57155469,d.bGE&cad=rja Mastering OpenCV PDF]
+ 
+ * [http://bytefish.de/blog/] Hat viele Beispiele und genaue Erklärungen
+ 
+ * [http://www.bytefish.de/blog/fisherfaces/ FisherFaces von Bytefish] beschreibt den Algorithmus auch in Python. (runter scrollen für das PDF) 
+ 
+ * [http://www.face-rec.org/algorithms] Erklärung zu die verschiedene Algorithmen
+
+*Repositories*
+ * [http://code.google.com/p/visual-control/ visual-control C++]
+
+*Blogs + Websites*
+ * [http://toefel.nl/projects/computer-vision-framework toefel.nl EN]
+
+*Videos*
+ * [http://www.youtube.com/watch?v=yFSPnu6_TZY Basic Face Detection and Face Recognition Using OpenCV EN]
+
+
+== PyQT ==
+
+ * [http://wrdeoftheday.com/?page_id=2 wrdeoftheday.com] example
+
+ * [http://stackoverflow.com/questions/9465608/videocapture-and-pyqt stackoverflow]
+
+== Numpy ==
+
+ * [http://docs.scipy.org/doc/numpy-1.7.0/reference/index.html numpy 1.7.0] Doku
+
+== OpenCV ==
+
+ * [http://docs.opencv.org/modules/contrib/doc/facerec/facerec_tutorial.html facerec Tutorial]
+ * [http://docs.opencv.org/trunk/doc/py_tutorials/py_objdetect/py_face_detection/py_face_detection.html?highlight=face%20tracking#haar-cascade-detection-in-opencv face Recognize Beispiel]
+
+== Python ==
+
+ * [http://wiki.ubuntuusers.de/bpython bpython] Python Interpreter, besser als Idle
+
+ * [http://www.jetbrains.com/pycharm/ PyCharm]
+
+ * [http://sumnous.wordpress.com/2012/10/17/install-pycharm-and-jdk-on-ubuntu-12-04/ install-pycharm] how to install on Linux
+
+ 

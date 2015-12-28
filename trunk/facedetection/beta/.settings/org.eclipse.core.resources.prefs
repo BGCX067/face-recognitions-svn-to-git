@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding/controller.py=utf-8
+encoding/database.py=utf-8
+encoding/fdetection.py=utf-8
+encoding/frecognize.py=utf-8
+encoding/gui.py=utf-8
+encoding/main.py=utf-8

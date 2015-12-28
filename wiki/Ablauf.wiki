@@ -1,0 +1,50 @@
+#Ablauf von Demo
+
+= Präsentationsablauf =
+
+Hier ist der Ablauf der Demo, wie wir es präsentieren werden
+
+  # Wurzelpfad-Ordner löschen
+  # Dropbox abschalten
+  # database: Wurzelpfad über-/angeben
+  # main:log.level gewünscht einstellen -> INFO oder CRITICAL
+  # Programm-Start
+  # Wer-Bin-Ich Button Klick - Hinweis anzeigen lassen (_im Hintergrund wird Verzeichnis angelegt_)
+   # Bekannt-Machen: 1. Person legt über 100 Bilder an
+   # Bekannt-Machen: 2. Person legt über 100 Bilder an
+  # Wer-Bin-Ich-Button mit nur 2 Personen - Fehler abfangen
+   # Bekannt-Machen: 3. Person legt über 100 Bilder an
+    # Wer-Bin-Ich-Button während Bekanntmachung -> Zeigen dass dies nicht zugelassen
+  # Wer-Bin-Ich-Button mit 3 Personen
+   # Bekannt-Machen-Button klicken während Erkennungsmodus -> zeigen dass nicht zugelassen
+   # *Durchgang:* 1. Person erkennen mit _-> Button Anhalten_ -> pseudoprozent
+   # *Durchgang:* 2. Person erkennen mit _-> Button Anhalten_ -> pseudoprozent
+   # *Durchgang:* 3. Person erkennen mit _-> Button Anhalten_ -> pseudoprozent
+   # *Durchgang:* Alle Personen durchgehend ohne Button_klick erkennen -> *pseudoprozent  nicht wahrheitsentsprechend in der Konsole*
+  # Programm beenden
+  # Programm Neustart
+  # Bekannt-Machen (Uli): 4. Person legt über 100 Bilder an
+   # *Durchgang:* 4. Person erkennen mit _-> Button Anhalten_ -> pseudoprozent
+   # *Durchgang:* Alle Personen durchgehend ohne Button_klick erkennen -> *pseudoprozent  nicht wahrheitsentsprechend in der Konsole*
+
+==  Hinweise und Gesprächsthemen: == 
+   * Preprocessing blabla
+   * Fisherfaces nicht nur Eigenfaces implementiert PCA + LDA
+   * Zustand bekannter Personen wird aus Sicherungsdatei und vorhandenen TrainingsSets auf Platte zusammen gefügt, wobei Plattenzustand immer gewinnt gegen Sicherungsdatei.
+   * LDA funktioniert erst ab 3 Personen da Classes-1 Eigenvektoren entstehen, was bei 2 Klassen zu einem Skalar führen würde und in bei der Matrixmultiplikation die Matrix auf einen Skalar abbilden würde.
+   * Eigenwertproblem -> Lösung?
+   * Usability Aspekte bewusst aufgrund Zeitdruck hinten angestellt, Anzahl bilder immer checken etc.
+   * Man kann nicht Trainings-Modus und  Erkennungsmodus gleichzeitig starten.
+ 
+
+
+Voraussetzungen
+  * Name egal, ID wichtig
+  * mind. 3 Personen
+  * keine Brille
+  * mind. 100 Bilder
+  * falsche ID-Eingabe wird nicht abgefangen
+  * Name --> ID Zuordnung erst beim 1 Abspeichern eines Bildes
+  * Unbekannte Person ( Person ohne eigenen TS ) schwer differenzierter
+    * trotz min_dis & similar Schwellwerte
+  * "reset" per Hand löschen --> Verzeichnisse müssen manuell gelöscht werden

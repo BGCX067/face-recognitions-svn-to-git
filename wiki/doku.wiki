@@ -1,0 +1,117 @@
+#summary Gliederung und Hinweise zur Dokumentation
+
+== Titelvorschläge ==
+
+ # Einfaches System für Facerecognition
+ # Einfaches System zur Facerecognition
+ # Einfaches System zur Gesichtserkennung
+ # Einfaches System zum Wiedererkennen von Gesichtern
+ # Einfaches System zur Wiedererkennung von drei Gesichtern
+ # Einfaches System zur personalisierten Begrüßung drier Studenten durch Gesichts-Wiedererkennung
+ # Prototyp zur automatischen Wiedererkennung von drei Gesichtern
+ # Gesichter Wiedererkennen - Ein einfaches System
+ # Ich weiß wer Du wirklich bist - Ein einfaches System um Gesichter wieder zu erkennen
+ # Ich weiß wer Du wirklich bist - Eine Kamera erkennt Gesichter wieder
+
+== Gliederung ==
+
+ # Abstract
+  * Worum es in dieser Ausarbeitung geht
+  * 2-3 Sätze?
+ # Einleitung
+  * Hintergrund 
+  * warum wollen wir FD machen: 
+   * Interessant
+   * aktuell überall Kameras verfügbar Handy, Webcam, sogar in Desktop Pcs 
+  * was ist der Nutzen:
+   *Usabilty + Barrierefreiheit + Performance durch Zeiteinsparung alternativer Loginvorgänge etc.
+  * heutige Anwendungsgebiete/ Möglichkeiten, (Historische Entwicklung)
+   * nicht sicherheitskritische einsatz, Handylogin, PC-Login
+ # Verwendete Bibliotheken und Sprachen, Technologieen
+  * OpenCV 2.x, Python, PyQt4.x, numpy:  
+   * weil Lizenzfrei, OS-Unabhängig, schöne + mächtige GUI mit PyQt4
+  * standard Webcam:
+   * weil fast überall verfügbar
+  * Warum haar und nicht LBP:
+   * System nicht Zeitkritisch, haar besser vortrainiert
+ # Was leistet das System?
+  # Facedetection
+   * Begriff und Unterschied zu Facerecognition erläutern, nur check ob Gesicht und NICHT welches Gesicht
+   * Einsatz beim lernen der Datenbank sowie beim tatsächlichen Erkennungsvorgang
+  # Face Preprocessing (@Julia BITTE KORRIGIEREN)
+   * Ziel: Bilde der Gesichter Maschinell vergleichbar machen
+   # Grauwertumwandlug 
+   # Bilder auf feste Breite skalieren ohne Veränderung des Aspectratio
+   # Histogrammausgleich für Lichtverhältnisausgleich, höheren Kontrast in wichtigen Gesichtsbereichen, Auge, Nase, Mund, 
+    * Einsatz beim lernen der Datenbank sowie beim tatsächlichen Erkennungsvorgang
+   # Facedetection
+    * Viola-Jones-Algorithmus mit haarcascades + nur größtest Gesicht finden
+    * Quadratisches Gesichtsbild ermittelt mit dem weiter gearbeitet wird
+   # Eyedetection
+    * Augen als rechtes und Linkes Auge müssen erkannt werden zusätzlich zum Gesicht an sich
+    * Unser System verwendet ...eye_2split.xml => großer ROI Bereich um die Augen vorteilhaft etc. (S.273)
+    * Verwendet statistisch erhobene Daten von Standard-Augen-Positionen + Gesichtsmerkmalen
+    * Mund und Nase nicht so hilfreich deshalb weggelassen
+    * System erkennt geschlossenen Augen und offene
+   # Transformation
+    * Augenpositionen zum horizontalen ausrichten des Gesichtes benutzt (dient der vergleichbarkeit der Bilder, nicht dazu schief gehaltene Gesichter zu erkennen)
+    * Gesichter werden skaliert auf feste Größe
+   # Histogrammausgleich auf linker und rechter Gesichtshälfte, in der Mitte gemittelt aus beiden Seiten um harte Kante zu vermeiden
+   # Bilateral-Filter: 
+    * Weichzeichnung um Rauschen, die durch das vorherige Histogrammausgleich entsteht, zu verringern
+   # Cropping per ellyptische Maske 
+    * nicht relevanter Bildbereiche werden entfernt
+    * Haare
+    * Bart (Wangen)
+  # Gesichter-Lernen und Datenbank füllen (Trainig)
+  # Face Recognition
+   * Bekannte Gesichter wieder erkennen
+ # Was kann das System nicht leisten?
+  * Zuverlässige Facedetection
+  * Sicherheit-Kritische Zuverlässigkeit
+  * Brillenträger
+  * keine Frontal-Perspektive
+  * Schlechte Lichtverhältnisse
+ # Zukunftsausblick
+  * Was würden wir gerne noch machen wenn wir mehr Zeit hätten
+  * Portabilität auf Linux, Windows, andere Hardware, Mobile
+  * Schnittstelle um eine beliebige Software anbinden zu können
+ # Probleme und deren Lösung
+  * Probleme/ Lösung
+ # Fazit
+  * positiv
+   * für einfache Systeme schönes Addon, in Zukunft bestimmt immer besser
+  * negativ
+   * Großes Sicherheitsproblem, zb. Gesichtsdatenbank in falschen Händen, Fehleranfälligkeit
+# Quellen
+  * Online
+    * Wikipedia
+    * bsi.bund.de
+  * Literatur
+    * Master OpenCV
+ 
+ 
+ 
+
+== Rahmenbediunguen ==
+
+ * 10 Seiten
+ * Auf Highlevel normalen Text schreiben der einfach erklärt was man machen muss um die Facedetection umzusetzen
+
+=== Was hinein soll ===
+
+Im Prinzip ähnlich der Fachseminar Ausarbeitung. Kein 'Leidensbericht'.
+
+ * Hintergrund
+ 
+ * Welche Sprache/n verwenden wir
+
+ * Welche Bibliotheken verwenden wir
+
+ * Was kann das System leisten
+
+ * Was kann das System nicht leisten
+
+ * Was würden wir gerne noch machen wenn wir mehr Zeit hätten
+
+ * Probleme und wie wir sie gelöst haben
